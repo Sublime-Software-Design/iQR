@@ -1,0 +1,19 @@
+{
+    "name": "ssd/iqr",
+    "description": "Generate QRCodes",
+    "type": "n",
+    "license": "n",
+    "autoload": {
+        "psr-4": {
+            "Ssd\\Iqr\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Frank Wayong",
+            "email": "fwayong@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
