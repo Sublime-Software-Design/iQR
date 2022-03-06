@@ -1,40 +1,47 @@
 <?php 
+  // ini_set('display_errors', 'false');
   require_once 'vendor/autoload.php';
 
-  // header("Content-Type: text/plain");
-
-  $bitSize = 20;
-
   $qr = new Ssd\Iqr\IQR();
-
-  $data = hash('sha1','Short Code');
-  $data = md5('test');
-
-  $qrBits = $qr->matrix($data);
+  $qr->setData("https://www.throughout.nl");
+  $qr->setColors([
+    '#132b46',
+    '#132b46',
+    '#132b46'
+  ])
+  
 ?><table>
   <tr>
     <td valign="top">
-      <?= $qr->visualiser($qrBits, $bitSize, true) ?>
+      <?= $qr->visualiser() ?>
     </td>
-    <td valign="top" style="padding-left: 20px;">
-      <?= $qr->svg($qrBits, count($qrBits) * $bitSize, $bitSize) ?>
+    <td valign="top">
+      <?php 
+        /* 
+          Body Shapes: 
+            Ssd\Iqr\Body::DEFAULT
+            Ssd\Iqr\Body::FLUID
+
+          Frame Shapes:
+            Ssd\Iqr\Frame::DEFAULT
+            Ssd\Iqr\Frame::ROUNDED
+
+          EyeBall Shapes:
+            Ssd\Iqr\Ball::DEFAULT
+            Ssd\Iqr\Ball::ROUNDED
+        */
+        echo $qr->image(
+          Ssd\Iqr\Body::FLUID,
+          Ssd\Iqr\Frame::ROUNDED,
+          Ssd\Iqr\Ball::ROUNDED
+        ) 
+      ?>
     </td>
     <!-- <td valign="top" style="padding-left: 20px;">
-
-      <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
-        <defs>
-          <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="gradient">
-            <stop stop-color="#6300FF" stop-opacity="0.7" offset="0%"></stop>
-            <stop stop-color="#251D4B" offset="100%"></stop>
-          </linearGradient>
-          <mask id="mask">
-            <path d="M812.532 489.667L1306.8 -4.60034H-106L388.268 489.667C505.425 606.825 695.374 606.825 812.532 489.667Z" fill="#C4C4C4"/>
-          </mask>
-        </defs>
-        <image xlink:href="https://picsum.photos/600/400" x="0" y="0" width="600" height="400" mask="url(#mask)" />
-        <rect width="1400" height="742" mask="url(#mask)" fill="url(#gradient)"></rect>
-      </svg>
-
+      <pre style="font-size: 10px;"><?= json_encode( [
+        'eyeFrames' => $GLOBALS['iqr']['eyeFrames'],
+        'matrix' => $GLOBALS['iqr']['matrixExtra']
+      ], JSON_PRETTY_PRINT) ?></pre>
     </td> -->
   </tr>
 </table>
