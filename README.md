@@ -9,7 +9,7 @@ composer require ssd/iqr
 ```
 $qr = new Ssd\Iqr\IQR();
 $qr->setData("https://qrtech.me");
-<img src="<?= $qr->imageSrc( Ssd\Iqr\Body::FLUID, Ssd\Iqr\Frame::ROUNDED, Ssd\Iqr\Ball::ROUNDED ) ?>" />
+<img src="<?= $qr->imageSrc() ?>" />
 ```
 
 Copyright 2022 Frank Wayong <fwayong@gmail.com>
