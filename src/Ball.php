@@ -1,5 +1,5 @@
-<?php 
-namespace Ssd\Iqr;
+<?php
+namespace Subsof\Iqr;
 
 class Ball {
 
@@ -8,7 +8,7 @@ class Ball {
 
   public static function get( $body = null ) {
     if(is_null($body)) {$body = self::DEFAULT;}
-    $body = 'Ssd\Iqr\Ball\\'.$body;
+    $body = 'Subsof\Iqr\Ball\\'.$body;
     if(!class_exists($body)) {
       throw new \Exception("Invalid EyeBall Type: {$body} !!");
     }else{

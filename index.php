@@ -1,38 +1,48 @@
-<?php 
+<?php
   // ini_set('display_errors', 'false');
   require_once 'vendor/autoload.php';
 
+<<<<<<< Updated upstream
   $qr = new Ssd\Iqr\IQR();
   $qr->setData("https://www.throughout.nl");
+=======
+  $qr = new Subsof\Iqr\IQR();
+  $qr->setData("https://qrtech.me");
+>>>>>>> Stashed changes
   $qr->setColors([
     '#132b46',
     '#132b46',
     '#132b46'
+<<<<<<< Updated upstream
   ])
   
+=======
+  ]);
+
+>>>>>>> Stashed changes
 ?><table>
   <tr>
     <td valign="top">
       <?= $qr->visualiser() ?>
     </td>
     <td valign="top">
-      <?php 
-        /* 
-          Body Shapes: 
-            Ssd\Iqr\Body::DEFAULT
-            Ssd\Iqr\Body::FLUID
+      <?php
+        /*
+          Body Shapes:
+            Subsof\Iqr\Body::DEFAULT
+            Subsof\Iqr\Body::FLUID
 
           Frame Shapes:
-            Ssd\Iqr\Frame::DEFAULT
-            Ssd\Iqr\Frame::ROUNDED
+            Subsof\Iqr\Frame::DEFAULT
+            Subsof\Iqr\Frame::ROUNDED
 
           EyeBall Shapes:
-            Ssd\Iqr\Ball::DEFAULT
-            Ssd\Iqr\Ball::ROUNDED
+            Subsof\Iqr\Ball::DEFAULT
+            Subsof\Iqr\Ball::ROUNDED
         */
-        echo $qr->svg( Ssd\Iqr\Body::FLUID, Ssd\Iqr\Frame::ROUNDED, Ssd\Iqr\Ball::ROUNDED );
+        echo $qr->svg( Subsof\Iqr\Body::FLUID, Subsof\Iqr\Frame::ROUNDED, Subsof\Iqr\Ball::ROUNDED );
       ?>
-      <img src="<?= $qr->imageSrc( Ssd\Iqr\Body::FLUID, Ssd\Iqr\Frame::ROUNDED, Ssd\Iqr\Ball::ROUNDED ) ?>" />
+      <img src="<?= $qr->imageSrc( Subsof\Iqr\Body::FLUID, Subsof\Iqr\Frame::ROUNDED, Subsof\Iqr\Ball::ROUNDED ) ?>" />
     </td>
     <!-- <td valign="top" style="padding-left: 20px;">
       <pre style="font-size: 10px;"><?= json_encode( [

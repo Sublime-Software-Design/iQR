@@ -1,11 +1,11 @@
-<?php 
-namespace Ssd\Iqr\Ball;
+<?php
+namespace Subsof\Iqr\Ball;
 class Standard {
   public static function get() {
     $imgSize = count($GLOBALS['iqr']['matrix']) * 10;
     $css = '-webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px;';
     $css .= 'fill: ' . $GLOBALS['iqr']['colors']['ball'] . ';';
-    $css .= 'stroke: ' . $GLOBALS['iqr']['colors']['ball'] . ';'; 
+    $css .= 'stroke: ' . $GLOBALS['iqr']['colors']['ball'] . ';';
     $css .= 'stroke-width: 0px;';
     $svg = "";
 

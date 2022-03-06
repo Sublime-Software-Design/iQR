@@ -9,7 +9,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-namespace Ssd\Iqr;
+namespace Subsof\Iqr;
 
 use \chillerlan\QRCode\QRCode;
 use \chillerlan\QRCode\QROptions;

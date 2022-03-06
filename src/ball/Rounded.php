@@ -1,5 +1,5 @@
-<?php 
-namespace Ssd\Iqr\Ball;
+<?php
+namespace Subsof\Iqr\Ball;
 class Rounded {
   public static function get() {
     $shape = "roundedSquare";
@@ -10,7 +10,7 @@ class Rounded {
     ];
     $css = '-webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px;';
     $css .= 'fill: ' . $GLOBALS['iqr']['colors']['ball'] . ';';
-    $css .= 'stroke: ' . $GLOBALS['iqr']['colors']['ball'] . ';'; 
+    $css .= 'stroke: ' . $GLOBALS['iqr']['colors']['ball'] . ';';
     $css .= 'stroke-width: 0px;';
     $svg = ""; $ctr = 0;
     foreach($yxArray as $row) {

@@ -1,5 +1,5 @@
-<?php 
-namespace Ssd\Iqr\Frame;
+<?php
+namespace Subsof\Iqr\Frame;
 class Standard {
   public static function get() {
     $yxArray = [
@@ -9,7 +9,7 @@ class Standard {
     ];
     $css = '-webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px;';
     $css .= 'fill: ' . $GLOBALS['iqr']['colors']['ball'] . ';';
-    $css .= 'stroke: ' . $GLOBALS['iqr']['colors']['ball'] . ';'; 
+    $css .= 'stroke: ' . $GLOBALS['iqr']['colors']['ball'] . ';';
     $css .= 'stroke-width: 0px;';
     $svg = "";
     foreach($yxArray as $row) {

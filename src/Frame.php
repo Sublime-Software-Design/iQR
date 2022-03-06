@@ -1,5 +1,5 @@
-<?php 
-namespace Ssd\Iqr;
+<?php
+namespace Subsof\Iqr;
 
 class Frame {
 
@@ -8,7 +8,7 @@ class Frame {
 
   public static function get( $body = null ) {
     if(is_null($body)) {$body = self::DEFAULT;}
-    $body = 'Ssd\Iqr\Frame\\'.$body;
+    $body = 'Subsof\Iqr\Frame\\'.$body;
     if(!class_exists($body)) {
       throw new \Exception("Invalid Frame Type: {$body} !!");
     }else{
