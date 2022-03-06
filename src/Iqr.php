@@ -89,7 +89,7 @@ class IQR
   public function svg( $body = null, $eyeFrame = null, $eyeBall = null ) {
     $imageSize = count($GLOBALS['iqr']['matrix']) * 10;
     $svg = '<?xml version="1.1" encoding="UTF-8" standalone="no"?>';
-    $svg .= '<svg width="'.($imageSize*2).'px" height="'.($imageSize*2).'px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '.$imageSize.' '.$imageSize.'" style="border: 0px solid #787878;" shape-rendering="'.$this->svgRendering.'">';
+    $svg .= '<svg width="'.($imageSize).'px" height="'.($imageSize).'px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '.$imageSize.' '.$imageSize.'" style="border: 0px solid #787878;" shape-rendering="'.$this->svgRendering.'">';
     $svg .= Body::get($body);
     $svg .= Frame::get($eyeFrame);
     $svg .= Ball::get($eyeBall);
