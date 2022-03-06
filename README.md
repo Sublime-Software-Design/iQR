@@ -1,3 +1,17 @@
+## Installation
+
+```
+composer require ssd/iqr
+```
+
+## Quickstart
+
+```
+$qr = new Ssd\Iqr\IQR();
+$qr->setData("https://qrtech.me");
+<img src="<?= $qr->imageSrc( Ssd\Iqr\Body::FLUID, Ssd\Iqr\Frame::ROUNDED, Ssd\Iqr\Ball::ROUNDED ) ?>" />
+```
+
 Copyright 2022 Frank Wayong <fwayong@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
