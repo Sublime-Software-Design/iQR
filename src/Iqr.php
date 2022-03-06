@@ -28,6 +28,7 @@ class IQR
     ]);
     $GLOBALS['iqr']['qr'] = new QRCode($options);
     $GLOBALS['iqr']['svgShapes'] = json_decode(file_get_contents(__DIR__.'/shapes.json'), true);
+    $this->setColors();
   }
 
   public function setData( $data ) {
