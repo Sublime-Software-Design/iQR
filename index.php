@@ -3,12 +3,12 @@
   require_once 'vendor/autoload.php';
 
   $qr = new Ssd\Iqr\IQR();
-  $qr->setData("https://www.throughout.nl");
+  $qr->setData("https://qrtech.me");
   $qr->setColors([
     '#132b46',
     '#132b46',
     '#132b46'
-  ])
+  ]);
   
 ?><table>
   <tr>
