@@ -30,12 +30,9 @@
             Ssd\Iqr\Ball::DEFAULT
             Ssd\Iqr\Ball::ROUNDED
         */
-        echo $qr->image(
-          Ssd\Iqr\Body::FLUID,
-          Ssd\Iqr\Frame::ROUNDED,
-          Ssd\Iqr\Ball::ROUNDED
-        ) 
+        echo $qr->svg( Ssd\Iqr\Body::FLUID, Ssd\Iqr\Frame::ROUNDED, Ssd\Iqr\Ball::ROUNDED );
       ?>
+      <img src="<?= $qr->imageSrc( Ssd\Iqr\Body::FLUID, Ssd\Iqr\Frame::ROUNDED, Ssd\Iqr\Ball::ROUNDED ) ?>" />
     </td>
     <!-- <td valign="top" style="padding-left: 20px;">
       <pre style="font-size: 10px;"><?= json_encode( [

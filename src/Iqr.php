@@ -17,7 +17,7 @@ use \chillerlan\QRCode\QROptions;
 class IQR
 {
 
-  private $svgRendering = 'crispEdges'; // auto | optimizeSpeed | crispEdges | geometricPrecision
+  private $svgRendering = 'auto'; // auto | optimizeSpeed | crispEdges | geometricPrecision
 
   function __construct() {
      $GLOBALS['iqr'] = [];
@@ -38,7 +38,6 @@ class IQR
       $thisDots = [];
       foreach($row as $x => $module){
         $value = $matrix->get($x, $y);
-        // $key = $y.':'.$x;
         $topKey = ($y-1).':'.$x;
         $rightKey = $y.':'.($x+1);
         $bottomKey = ($y+1).':'.$x;
@@ -87,15 +86,20 @@ class IQR
     return $html;
   }
 
-  public function image( $body = null, $eyeFrame = null, $eyeBall = null ) {
+  public function svg( $body = null, $eyeFrame = null, $eyeBall = null ) {
     $imageSize = count($GLOBALS['iqr']['matrix']) * 10;
     $svg = '<?xml version="1.1" encoding="UTF-8" standalone="no"?>';
-    $svg .= '<svg width="'.($imageSize*2).'px" height="'.($imageSize*2).'px" version="1.1" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 '.$imageSize.' '.$imageSize.'" style="border: 1px solid #787878;" shape-rendering="crispEdges">';
+    $svg .= '<svg width="'.($imageSize*2).'px" height="'.($imageSize*2).'px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '.$imageSize.' '.$imageSize.'" style="border: 0px solid #787878;" shape-rendering="'.$this->svgRendering.'">';
     $svg .= Body::get($body);
     $svg .= Frame::get($eyeFrame);
     $svg .= Ball::get($eyeBall);
     $svg .= '</svg>';
     return $svg;
+  }
+
+  public function imageSrc( $body = null, $eyeFrame = null, $eyeBall = null ) {
+    $svg = $this->svg( $body, $eyeFrame, $eyeBall );
+    return 'data:image/svg+xml;base64,'.base64_encode($svg);
   }
 
   private function getEyeFramePos() {
