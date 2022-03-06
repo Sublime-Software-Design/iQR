@@ -2,7 +2,7 @@
   "name": "subsof/iqr",
   "description": "Generate QRCodes",
   "type": "n",
-  "license": "n",
+  "license": "Apache-2.0",
   "autoload": {
     "psr-4": {
       "Subsof\\Iqr\\": "src/"
