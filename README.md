@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-README Github iQR
-=======
 ## Important Reminder!
 
 This Project is currently being developed, so there is absolutely nothing much too see yet.
@@ -37,4 +34,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
->>>>>>> Stashed changes

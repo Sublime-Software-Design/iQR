@@ -2,24 +2,13 @@
   // ini_set('display_errors', 'false');
   require_once 'vendor/autoload.php';
 
-<<<<<<< Updated upstream
-  $qr = new Ssd\Iqr\IQR();
-  $qr->setData("https://www.throughout.nl");
-=======
   $qr = new Subsof\Iqr\IQR();
   $qr->setData("https://qrtech.me");
->>>>>>> Stashed changes
   $qr->setColors([
     '#132b46',
     '#132b46',
     '#132b46'
-<<<<<<< Updated upstream
-  ])
-  
-=======
   ]);
-
->>>>>>> Stashed changes
 ?><table>
   <tr>
     <td valign="top">
