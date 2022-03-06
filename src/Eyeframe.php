@@ -3,14 +3,14 @@ namespace Ssd\Iqr;
 
 class Eyeframe 
 {
-  private static $frameBits = [
+  public static $frameBits = [
     [0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],
     [1,0],[2,0],[3,0],[4,0],[5,0],
     [1,6],[2,6],[3,6],[4,6],[5,6],
     [6,0],[6,1],[6,2],[6,3],[6,4],[6,5],[6,6],
   ];
 
-  private static $eyeBits = [
+  public static $eyeBits = [
     [2,2],[2,3],[2,4],
     [3,2],[3,3],[3,4],
     [4,2],[4,3],[4,4]
@@ -40,13 +40,13 @@ class Eyeframe
   /**
    * Frames of the eyeframe
    */
-  private static function squareFrame( $bitSize, $color = 'black' ) 
+  public static function squareFrame( $color = 'black', $offsetX = 4, $offsetY = 4 ) 
   {
-    $ret = '';
+    $ret = [];
     foreach(self::$frameBits as $bit) {
-      $ret .= Shapes::square( $bitSize, $color, $bit[0]*$bitSize, $bit[1]*$bitSize );
+      $ret[] = Shapes::square( $color, ($bit[0]*10) + ($offsetX*10), ($bit[1]*10) + ($offsetY*10) );
     }
-    return $ret;
+    return implode(PHP_EOL, $ret);
   }
 
   private static function roundedCornerFrame( $bitSize, $color, $eyeframePosition ) 
@@ -60,7 +60,7 @@ class Eyeframe
     foreach(self::$frameBits as $bit) {
       $xy = $bit[0].','.$bit[1];
       if(!in_array($xy,$skip)) {
-        $ret .= Shapes::square( $bitSize, $color, $bit[0]*$bitSize, $bit[1]*$bitSize );
+        $ret .= Shapes::square( $color, $bit[0]*$bitSize, $bit[1]*$bitSize );
       }
     }
     $curvePath = [
@@ -87,7 +87,7 @@ class Eyeframe
     foreach(self::$frameBits as $bit) {
       $xy = $bit[0].','.$bit[1];
       if(!in_array($xy,$skip)) {
-        $ret .= Shapes::square( $bitSize, $color, $bit[0]*$bitSize, $bit[1]*$bitSize );
+        $ret .= Shapes::square( $color, $bit[0]*$bitSize, $bit[1]*$bitSize );
       }
     }
     $curvePath = [
@@ -113,11 +113,11 @@ class Eyeframe
   /**
    * Eyes of the eyeframe
    */
-  private static function squareEye( $bitSize, $color = 'black' )
+  public static function squareEye( $color = 'black', $offsetX = 4, $offsetY = 4 )
   {
     $ret = '';
     foreach(self::$eyeBits as $bit) {
-      $ret .= Shapes::square( $bitSize, $color, $bit[0]*$bitSize, $bit[1]*$bitSize );
+      $ret .= Shapes::square( $color, ($bit[0]*10) + ($offsetX*10), ($bit[1]*10) + ($offsetY*10) );
     }
     return $ret;
   }
@@ -133,7 +133,7 @@ class Eyeframe
     foreach(self::$eyeBits as $bit) {
       $xy = $bit[0].','.$bit[1];
       if(!in_array($xy,$skip)) {
-        $ret .= Shapes::square( $bitSize, $color, $bit[0]*$bitSize, $bit[1]*$bitSize );
+        $ret .= Shapes::square( $color, $bit[0]*$bitSize, $bit[1]*$bitSize );
       }
     }
     $curvePath = [

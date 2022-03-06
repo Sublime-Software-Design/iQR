@@ -1,0 +1,141 @@
+{
+  "bits": {
+    "roundedEnd": {
+      "element": "path",
+      "d": "M 5 5 m 5, 0 a 5,5 0 1,0 -10, 0 L 0,10 L 10,10",
+      "style": {
+        "stroke": "black",
+        "stroke-linecap": "square",
+        "stroke-width": "0",
+        "fill": "black"
+      }
+    },
+    "roundedSquare": {
+      "element": "path",
+      "d": "M 0,3 Q 0,0 3,0 L 7,0 Q 10,0 10,3 L 10,7 Q 10,10 7,10 L 3,10 Q 0,10 0,7 L 0,3",
+      "style": {
+        "stroke": "black",
+        "stroke-linecap": "square",
+        "stroke-width": "0",
+        "fill": "black"
+      }
+    },
+    "pointyEnd": {
+      "element": "path",
+      "d": "M 10,10 L 10,5 L 5,0 L 5,0 L 0,5 L 0,10",
+      "style": {
+        "stroke": "black",
+        "stroke-linecap": "square",
+        "stroke-width": "0",
+        "fill": "black"
+      }
+    },
+    "roundedCorner": {
+      "element": "path",
+      "d": "M 10,10 L 10,0 Q 0.75,0.75 0,10",
+      "style": {
+        "stroke": "black",
+        "stroke-linecap": "square",
+        "stroke-width": "0",
+        "fill": "black"
+      },
+      "transform": "rotate(0,5,5)"
+    },
+    "square": {
+      "element": "rect",
+      "width": "10",
+      "height": "10",
+      "style": {
+        "stroke": "black",
+        "stroke-linecap": "square",
+        "stroke-width": "0",
+        "fill": "black"
+      }
+    },
+    "cross": {
+      "element": "polygon",
+      "points": "0,10 3,10 5,8 7,10 10,10 10,7 8,5 10,3 10,0 7,0 5,2 3,0 0,0 0,3 2,5 0,7",
+      "style": {
+        "stroke": "black",
+        "stroke-linecap": "square",
+        "stroke-width": "0",
+        "fill": "black"
+      }
+    }
+  },
+  "eyeFrames": {
+    "square": {
+      "element": "path",
+      "d": "M 0,0 L 70,0 L 70,70 L 60, 70 L 60,10 L 10,10 L 10,60 L 60,60 L 60,70 L 0,70",
+      "style": {
+        "stroke": "black",
+        "stroke-linecap": "square",
+        "stroke-width": "0",
+        "fill": "black"
+      }
+    },
+    "roundedSquare": {
+      "element": "path",
+      "d": "M 0,25 Q 0,0 25,0 L 45,0 Q 70,0 70,25 L 70,45 Q 70,70 45,70 L 25,70 Q 0,70 0,45 L 0,25 L 10,25 L 10,45 Q 10,60 25,60 L 45,60 Q 60,60 60,45 L 60,25 Q 60,10 45,10 L 25,10 Q 10,10 10,25",
+      "style": {
+        "stroke": "black",
+        "stroke-linecap": "square",
+        "stroke-width": "0",
+        "fill": "black"
+      }
+    },
+    "roundedSquareOne": {
+      "element": "path",
+      "d": "M 0,20 Q 0,0 20,0 L 70,0 L 70,70 L 0,70 L 0,20 L 10,20 L 10,60 L 60,60 L 60,10 L 20,10 Q 10,10 10,20",
+      "style": {
+        "stroke": "black",
+        "stroke-linecap": "square",
+        "stroke-width": "0",
+        "fill": "black"
+      }
+    },
+    "roundedSquareTwo": {
+      "element": "path",
+      "d": "M 0,20 Q 0,0 20,0 L 70,0 L 70,50 Q 70,70 50,70 L 0,70 L 0,20 L 10,20 L 10,60 L 50,60 Q 60,60 60,50 L 60,10 L 20,10 Q 10,10 10,20",
+      "style": {
+        "stroke": "black",
+        "stroke-linecap": "square",
+        "stroke-width": "0",
+        "fill": "black"
+      }
+    },
+    "roundedSquareThree": {
+      "element": "path",
+      "d": "M 0,20 Q 0,0 20,0 L 50,0 Q 70,0 70,20 L 70,70 L 20,70 Q 0,70 0,50 L 0,20 L 10,20 L 10,50 Q 10,60 20,60 L 60,60 L 60,20 Q 60,10 50,10 L 20,10 Q 10,10 10,20",
+      "style": {
+        "stroke": "black",
+        "stroke-linecap": "square",
+        "stroke-width": "0",
+        "fill": "black"
+      }
+    }
+  },
+  "eyeBalls": {
+    "square": {
+      "element": "rect",
+      "width": "30",
+      "height": "30",
+      "style": {
+        "stroke": "black",
+        "stroke-linecap": "square",
+        "stroke-width": "0",
+        "fill": "black"
+      }
+    },
+    "roundedSquare": {
+      "element": "path",
+      "d": "M 0,10.5 Q 0,0 10.5,0 L 19.5,0 Q 30,0 30,10.5 L 30,19.5 Q 30,30 19.5,30 L 10.5,30 Q 0,30 0,19.5 L 0,10.5",
+      "style": {
+        "stroke": "black",
+        "stroke-linecap": "square",
+        "stroke-width": "0",
+        "fill": "black"
+      }
+    }
+  }
+}
