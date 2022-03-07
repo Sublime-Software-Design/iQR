@@ -33,7 +33,7 @@ class IQR
 
   public function setData( $data ) {
     $GLOBALS['iqr']['data'] = $data;
-    $matrix = @$GLOBALS['iqr']['qr']->getMatrix($data);
+    $matrix = $GLOBALS['iqr']['qr']->getMatrix($data);
     $matrixArray = []; $matrixArrayFull = [];
     foreach($matrix->matrix() as $y => $row){
       $thisDots = [];

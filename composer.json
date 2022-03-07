@@ -16,6 +16,6 @@
   ],
   "minimum-stability": "stable",
   "require": {
-    "chillerlan/php-qrcode": "^4.3"
+    "chillerlan/php-qrcode": "4.3.3"
   }
 }
