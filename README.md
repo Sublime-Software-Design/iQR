@@ -10,7 +10,7 @@ Stay tuned for future updates in where I'll try to add all the same options as i
 ## Installation
 
 ```
-composer require subsof/iqr:dev-main@dev
+composer require subsof/iqr
 ```
 
 ## Quickstart
