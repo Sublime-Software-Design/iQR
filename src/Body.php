@@ -5,6 +5,13 @@ class Body {
 
   const DEFAULT = 'Standard';
   const FLUID = 'Fluid';
+  const DOTS = 'Dots';
+  const TINYDOTS = 'DotsTiny';
+  const LIQUID = 'Liquid';
+  const RIBBON = 'Ribbon';
+  const RIBBONDOTS = 'RibbonDot';
+  const FINGER = 'Finger';
+  const GEMS = 'Gems';
 
   public static function get( $body = null ) {
     if(is_null($body)) {$body = self::DEFAULT;}

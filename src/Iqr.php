@@ -18,6 +18,7 @@ class IQR
 {
 
   private $svgRendering = 'auto'; // auto | optimizeSpeed | crispEdges | geometricPrecision
+  private $gradient = false;
 
   function __construct() {
      $GLOBALS['iqr'] = [];
@@ -28,6 +29,11 @@ class IQR
     ]);
     $GLOBALS['iqr']['qr'] = new QRCode($options);
     $GLOBALS['iqr']['svgShapes'] = json_decode(file_get_contents(__DIR__.'/shapes.json'), true);
+    $GLOBALS['iqr']['gradient'] = $this->gradient;
+    $GLOBALS['iqr']['gradientRotate'] = 0;
+    $GLOBALS['iqr']['gradientColors'] = [
+      'rgb(255,0,0)','rgb(255,255,0)'
+    ];
     $this->setColors();
   }
 
@@ -65,16 +71,26 @@ class IQR
     $this->getEyeFramePos();
   }
 
-  public function setColors( $colors = ['#132b46', '#132b46', '#132b46'] ) {
+  public function setColors( $colors = ['#000000', '#000000', '#000000'] ) {
     $GLOBALS['iqr']['colors'] = [
       'body' => $colors[0],
       'frame' => $colors[1],
       'ball' => $colors[2],
     ];
   }
+
+  public function setGradient( $colorA = null, $colorB = null, $degrees = 0 ) {
+    $this->gradient = true;
+    $GLOBALS['iqr']['gradient'] = true;
+    $GLOBALS['iqr']['gradientColors'] = [$colorA ?? 'rgb(255,0,0)', $colorB ?? 'rgb(255,255,0)'];
+    if(!in_array($degrees, [0,45,90,135,180,225,270,315])) {
+      $degrees = 0;
+    }
+    $GLOBALS['iqr']['gradientRotate'] = $degrees;
+  }
  
   public function visualiser() {
-    $bitSize = 20;
+    $bitSize = 10;
     $html = '<table cellpadding="0" cellspacing="0" style="border: 0px solid #787878;">';
     foreach($GLOBALS['iqr']['matrix'] as $row) {
       $html .= '<tr>';
@@ -91,14 +107,55 @@ class IQR
     $imageSize = count($GLOBALS['iqr']['matrix']) * 10;
     $svg = '<?xml version="1.1" encoding="UTF-8" standalone="no"?>';
     $svg .= '<svg width="'.($imageSize).'px" height="'.($imageSize).'px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '.$imageSize.' '.$imageSize.'" style="border: 0px solid #787878;" shape-rendering="'.$this->svgRendering.'">';
-    $svg .= Body::get($body);
-    $svg .= Frame::get($eyeFrame);
-    $svg .= Ball::get($eyeBall);
+
+    if($this->gradient) {
+      $svg .= '<defs>';
+      $rotationGradients = [
+        0 => ' x1="0%" y1="0%" x2="0%" y2="100%"',
+        45 => ' x1="0%" y1="0%" x2="100%" y2="100%"',
+        90 => ' x1="0%" y1="0%" x2="100%" y2="0%"',
+        135 => ' x1="0%" y1="100%" x2="100%" y2="0%"',
+        180 => ' x1="100%" y1="0%" x2="0%" y2="0%"',
+        225 => ' x1="100%" y1="0%" x2="0%" y2="100%"',
+        270 => ' x1="100%" y1="100%" x2="0%" y2="100%"',
+        315 => ' x1="100%" y1="100%" x2="0%" y2="0%"',
+      ];
+      $svg .= '  <linearGradient id="gradientColors"' . $rotationGradients[$GLOBALS['iqr']['gradientRotate']] . ' gradientUnits="userSpaceOnUse">';
+      $svg .= '  <stop offset="0%" style="stop-color:' . $GLOBALS['iqr']['gradientColors'][0] . ';stop-opacity:1" />';
+      $svg .= '  <stop offset="100%" style="stop-color:' . $GLOBALS['iqr']['gradientColors'][1] . ';stop-opacity:1" />';
+      $svg .= '  </linearGradient>';
+      $svg .= '</defs>';
+      $svg .= '<g fill="url(#gradientColors)">';
+      $svg .= Body::get($body);
+      $svg .= Frame::get($eyeFrame);
+      $svg .= Ball::get($eyeBall);
+      $svg .= '</g>';
+    }else{
+      $svg .= Body::get($body);
+      $svg .= Frame::get($eyeFrame);
+      $svg .= Ball::get($eyeBall);
+    }
     $svg .= '</svg>';
     return $svg;
   }
 
   public function imageSrc( $body = null, $eyeFrame = null, $eyeBall = null ) {
+    // // make png image
+    // $svg = $this->svg( $body, $eyeFrame, $eyeBall );
+    // file_put_contents(dirname(__DIR__)."/img.svg", $svg);
+    // $im = new \Imagick();
+    // // $im->setFormat('svg');
+    // $im->readImageBlob($svg);
+    // // $im->setImageFormat("jpeg");
+    // $im->setImageFormat("jpeg");
+    // // $im->setImageCompressionQuality(100);
+    // // $imgSrc = $im;
+    // $imgSrc = 'data:image/jpeg;base64,'.base64_encode($im);
+    // $im->clear();
+    // $im->destroy();
+    // return $imgSrc;
+
+    // default svg output
     $svg = $this->svg( $body, $eyeFrame, $eyeBall );
     return 'data:image/svg+xml;base64,'.base64_encode($svg);
   }

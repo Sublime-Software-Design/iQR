@@ -28,7 +28,7 @@ function createShape( $svgShape ) {
     $grid .= '<line x1="0" y1="'.$a.'" x2="10" y2="'.$a.'" style="stroke:grey;stroke-width:0.001" />';
   }
   $svg = '<?xml version="1.1" encoding="UTF-8" standalone="no"?>';
-  $svg .= '<svg width="'.$svgSize.'px" height="'.$svgSize.'px" version="1.1" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 10 10" style="border: 0px solid #787878;"'.SHAPE_RENDERING.'>';
+  $svg .= '<svg width="'.$svgSize.'px" height="'.$svgSize.'px" version="1.1" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 10 10" style="border: 1px solid #787878;"'.SHAPE_RENDERING.'>';
   $svg .= $svgShape;
   $svg .= SHOW_JSON ? "" : $grid;
   // $svg .= '<circle cx="5" cy="5" r="4.95" stroke="red" stroke-width="0" fill="red" />';
@@ -178,12 +178,13 @@ if(SHOW_JSON) {
     echo "<br />" . htmlspecialchars($thisShape) . "<hr />";
   }
 }else{
+  // M 0,10 Q 1,-10 10,10
   $shape = '<path 
-    d="M 0,25 Q 0,0 25,0 L 45,0 Q 70,0 70,25 L 70,45 Q 70,70 45,70 L 25,70 Q 0,70 0,45 L 0,25 L 10,25 L 10,45 Q 10,60 25,60 L 45,60 Q 60,60 60,45 L 60,25 Q 60,10 45,10 L 25,10 Q 10,10 10,25" 
+    d="M 5,0 L 10,5 L 5,10 L 0,5" 
     style="stroke: black; stroke-linecap: square; stroke-width: 0" 
   />';
-  // createShape( $shape );
-  createEyeFrame( $shape );
+  createShape( $shape );
+  // createEyeFrame( $shape );
   // createEyeBall( $shape );
 }
 ?>
