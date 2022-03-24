@@ -3,6 +3,9 @@
   "description": "Generate QRCodes",
   "type": "library",
   "license": "MIT",
+  "config": {
+    "optimize-autoloader": true
+  },
   "autoload": {
     "psr-4": {
       "Subsof\\Iqr\\": "src/"

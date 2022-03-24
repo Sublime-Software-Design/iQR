@@ -14,7 +14,7 @@ namespace Subsof\Iqr;
 use \chillerlan\QRCode\QRCode;
 use \chillerlan\QRCode\QROptions;
 
-class IQR
+class Iqr
 {
 
   private $svgRendering = 'auto'; // auto | optimizeSpeed | crispEdges | geometricPrecision

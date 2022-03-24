@@ -2,18 +2,18 @@
   ini_set('display_errors', 'true');
   require_once 'vendor/autoload.php';
 
-  $qr = new Subsof\Iqr\IQR();
+  $qr = new Subsof\Iqr\Iqr();
   $qr->setData("https://qrtech.me");
-  $qr->setGradient(
+  // $qr->setGradient(
+  //   '#ffff00',
+  //   '#ff0000',
+  //   45
+  // );
+  $qr->setColors([
     '#ffff00',
     '#ff0000',
-    45
-  );
-  // $qr->setColors([
-  //   '#132b46',
-  //   '#132b46',
-  //   '#132b46'
-  // ]);
+    '#132b46'
+  ]);
 ?><table>
   <tr>
     <td valign="top">

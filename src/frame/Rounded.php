@@ -11,8 +11,8 @@ class Rounded {
     $css = '-webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px;';
     if(!$GLOBALS['iqr']['gradient']) {
       // $css = '-webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px;';
-      $css .= 'fill: ' . $GLOBALS['iqr']['colors']['body'] . ';';
-      $css .= 'stroke: ' . $GLOBALS['iqr']['colors']['body'] . ';';
+      $css .= 'fill: ' . $GLOBALS['iqr']['colors']['frame'] . ';';
+      $css .= 'stroke: ' . $GLOBALS['iqr']['colors']['frame'] . ';';
     }
     $css .= 'stroke-width: 0px;';
     $svg = ""; $ctr = 0;
